@@ -1,800 +1,344 @@
-# \# U.S. Labor Market Analysis
+# U.S. Labor Market Analysis
 
-# 
+An end-to-end labor market analytics project examining how employment, pay, industry structure, and occupational opportunity vary across U.S. states.
 
-# An end-to-end labor market analytics project examining how employment, pay, industry structure, and occupational opportunity vary across U.S. states.
+The project combines U.S. Bureau of Labor Statistics (BLS) data from the Quarterly Census of Employment and Wages (QCEW) and Occupational Employment and Wage Statistics (OEWS) with Python-based data preparation, validation, exploratory analysis, and interactive Tableau dashboards.
 
-# 
+## Analytical Question
 
-# The project combines \*\*U.S. Bureau of Labor Statistics (BLS)\*\* data from the \*\*Quarterly Census of Employment and Wages (QCEW)\*\* and \*\*Occupational Employment and Wage Statistics (OEWS)\*\* with Python-based data preparation, validation, exploratory analysis, and interactive Tableau dashboards.
+How is the U.S. labor market changing across locations, industries, and occupations, and where are the strongest opportunities or challenges?
 
-# 
+---
 
-# The analysis is designed to answer a central question:
+## Project Overview
 
-# 
+The analysis is organized into three connected layers:
 
-# > \*\*How is the U.S. labor market changing across locations, industries, and occupations, and where are the strongest opportunities or challenges?\*\*
+| Analytical Layer | Focus |
+| --- | --- |
+| State Performance | Employment and average-pay changes across U.S. states from 2015–2025 |
+| Industry Dynamics | Industries contributing most to employment gains or losses within states |
+| Occupational Opportunity | Employment scale, wages, and local concentration across occupations |
 
-# 
+Together, these layers move from broad state-level performance to the industries driving that performance and finally to the occupational structure within individual states.
 
-# \---
+---
 
-# 
+## Interactive Tableau Dashboards
 
-# \## Project Overview
+### U.S. Labor Market Performance
 
-# 
+The first dashboard provides an executive view of state labor-market performance and industry dynamics.
 
-# The project is organized into three connected analytical layers:
+It allows users to:
 
-# 
+- Compare employment and pay indicators across states.
+- Examine long-term state employment growth.
+- Identify industries contributing to employment gains or losses.
+- Compare industry employment between two states.
+- Examine industry employment trajectories from 2015–2024.
 
-# 1\. \*\*State Performance\*\* — How employment and average pay changed across U.S. states from 2015–2025.
+![U.S. Labor Market Performance Dashboard](dashboards/labor_market_performance.png)
 
-# 2\. \*\*Industry Dynamics\*\* — Which industries contributed most to employment gains or losses within individual states.
+[View the interactive U.S. Labor Market Performance Dashboard on Tableau Public](https://public.tableau.com/shared/ZRMKGCPDJ?:display_count=n&:origin=viz_share_link)
 
-# 3\. \*\*Occupational Opportunity\*\* — How occupational groups differ in employment scale, wages, and local employment concentration.
+### U.S. Occupational Opportunity
 
-# 
+The second dashboard examines occupational opportunity within a selected state using employment scale, wages, and Location Quotient (LQ).
 
-# This structure moves from broad state-level performance to the industries underlying that performance and finally to the occupational structure within individual states.
+It allows users to:
 
-# 
+- Compare major occupational groups.
+- Identify occupations combining above-state-median wages with above-national employment concentration.
+- Examine employment composition across occupational opportunity profiles.
+- Drill down from major occupational groups into detailed occupations.
 
-# \---
+![U.S. Occupational Opportunity Dashboard](dashboards/occupational_opportunity.png)
 
-# 
+[View the interactive U.S. Occupational Opportunity Dashboard on Tableau Public](https://public.tableau.com/views/Workforce-project-Public/U_S_OCCUPATIONALOPPORTUNITYDashboard?:language=en-US&:display_count=n&:origin=viz_share_link)
 
-# \# Interactive Tableau Dashboards
+---
 
-# 
+## Key Findings
 
-# \## 1. U.S. Labor Market Performance
+### State Employment Growth
 
-# 
+Employment growth varied substantially across U.S. states between 2015 and 2025.
 
-# The first dashboard provides an executive view of state labor-market performance and industry dynamics.
+Some of the strongest employment growth occurred in:
 
-# 
+| State | Employment Growth |
+| --- | ---: |
+| Idaho | 31.51% |
+| Utah | 29.87% |
+| Nevada | 26.08% |
+| Arizona | 23.95% |
+| Florida | 23.32% |
+| Texas | 21.05% |
 
-# It allows users to:
+The median state employment growth rate over the period was approximately 8.44%.
 
-# 
+The trajectories behind these endpoint results also differed. Idaho and Utah showed sustained expansion with relatively rapid recovery following the 2020 labor-market disruption. Florida experienced a larger 2020 decline followed by a strong rebound.
 
-# \- Compare employment and pay indicators across states.
+North Dakota followed a different pattern, with weakness beginning before the pandemic and being compounded by another decline in 2020.
 
-# \- Examine long-term state employment growth.
+These differences demonstrate that similar endpoint growth rates do not necessarily imply similar labor-market trajectories.
 
-# \- Identify industries contributing to employment gains or losses.
+### Employment and Pay Growth
 
-# \- Compare industry employment between two states.
+Employment growth and nominal average annual pay growth were positively related across states, with a correlation of approximately 0.60.
 
-# \- Examine industry employment trajectories from 2015–2024.
+However, the relationship was not uniform. States appeared in four broad patterns:
 
-# 
+- High employment growth / high pay growth
+- High employment growth / lower relative pay growth
+- Lower employment growth / high pay growth
+- Lower employment growth / lower pay growth
 
-# !\[U.S. Labor Market Performance Dashboard](dashboards/labor\_market\_performance.png)
+This distinction helps separate labor-market expansion from changes in compensation.
 
-# 
+Note: Pay growth is nominal and is not adjusted for inflation. It should not be interpreted as growth in purchasing power.
 
-# \### Interactive Version
+### Industry Growth Drivers
 
-# 
+For systematic cross-state industry comparison, the analysis uses 2015–2024 rather than 2015–2025 because 2025 QCEW industry coverage was incomplete for several states.
 
-# \[\*\*View the U.S. Labor Market Performance Dashboard on Tableau Public\*\*](https://public.tableau.com/shared/ZRMKGCPDJ?:display\_count=n\&:origin=viz\_share\_link)
+Among 50 states with sufficient endpoint data coverage:
 
-# 
+| Industry | States Ranked in Top 3 for Job Gains |
+| --- | ---: |
+| Health Care and Social Assistance | 47 |
+| Professional, Scientific, and Technical Services | 33 |
+| Construction | 24 |
+| Transportation and Warehousing | 20 |
 
-# \---
+Health Care and Social Assistance was the single largest employment-growth contributor in 36 of the 50 states.
 
-# 
+This makes Health Care and Social Assistance the most geographically widespread employment-growth engine in the analysis, while secondary growth drivers were considerably more state-specific.
 
-# \## 2. U.S. Occupational Opportunity
+### Different States, Different Growth Structures
 
-# 
+Even rapidly expanding states did not grow through identical industry structures.
 
-# The second dashboard examines occupational opportunity within a selected state using employment scale, wages, and \*\*Location Quotient (LQ)\*\*.
+#### Florida
 
-# 
+Major employment additions included:
 
-# Users can:
+- Health Care and Social Assistance: +333,648
+- Professional, Scientific, and Technical Services: +256,459
+- Construction: +228,144
+- Transportation and Warehousing: +178,131
+- Accommodation and Food Services: +147,126
 
-# 
+Florida therefore experienced relatively broad-based employment expansion across several major industries.
 
-# \- Compare major occupational groups.
+#### Idaho
 
-# \- Identify occupations combining above-state-median wages with above-national employment concentration.
+Major employment gains included:
 
-# \- Examine the employment composition of different occupational opportunity profiles.
+- Health Care and Social Assistance: +38,691
+- Construction: +36,954
+- Accommodation and Food Services: +20,886
+- Professional, Scientific, and Technical Services: +19,709
 
-# \- Drill down from major occupational groups into detailed occupations.
+Construction employment increased by more than 100% over the period, making it a particularly important component of Idaho's labor-market expansion.
 
-# 
+#### Texas
 
-# !\[U.S. Occupational Opportunity Dashboard](dashboards/occupational\_opportunity.png)
+Major employment gains included:
 
-# 
+- Health Care and Social Assistance: +392,834
+- Professional, Scientific, and Technical Services: +354,280
+- Accommodation and Food Services: +244,890
+- Construction: +222,918
+- Transportation and Warehousing: +217,157
 
-# \### Interactive Version
+At the same time, Mining, Quarrying, and Oil and Gas Extraction declined by approximately 60,000 jobs.
 
-# 
+This illustrates how strong aggregate state employment growth can coexist with contraction in historically important industries.
 
-# \[\*\*View the U.S. Occupational Opportunity Dashboard on Tableau Public\*\*](https://public.tableau.com/views/Workforce-project-Public/U\_S\_OCCUPATIONALOPPORTUNITYDashboard?:language=en-US\&:display\_count=n\&:origin=viz\_share\_link)
+---
 
-# 
+## Occupational Opportunity Framework
 
-# \---
+The occupational analysis uses OEWS data from 2021–2025 to examine employment opportunities within individual states.
 
-# 
+Three complementary dimensions are used:
 
-# \# Key Findings
+| Measure | Interpretation |
+| --- | --- |
+| Employment | Scale of the occupation within the selected state |
+| Median Annual Wage | Occupational compensation level |
+| Location Quotient (LQ) | Local employment concentration relative to the national labor market |
 
-# 
+An LQ of 1.0 represents approximately the national concentration level.
 
-# \## State Employment Growth
+- Above 1.0 indicates greater local concentration.
+- Below 1.0 indicates lower local concentration.
 
-# 
+The dashboard compares occupational wages with the selected state's overall median wage and uses LQ = 1.0 as the national concentration benchmark.
 
-# Long-term employment growth differed substantially across U.S. states.
+This creates four descriptive occupational profiles:
 
-# 
+- High Pay / High Concentration
+- High Pay / Low Concentration
+- Low Pay / High Concentration
+- Low Pay / Low Concentration
 
-# From 2015 to 2025, some of the strongest employment growth occurred in:
+These profiles describe occupational structure and are not intended as rankings of the best or worst occupations.
 
-# 
+---
 
-# | State | Employment Growth |
+## Data Sources
 
-# |---|---:|
+### Quarterly Census of Employment and Wages (QCEW)
 
-# | Idaho | 31.51% |
+Source: U.S. Bureau of Labor Statistics
 
-# | Utah | 29.87% |
+Analysis period: 2015–2025
 
-# | Nevada | 26.08% |
+Used for:
 
-# | Arizona | 23.95% |
+- State employment
+- Establishments
+- Total wages
+- Average annual pay
+- Average weekly wage
+- State-level labor-market analysis
+- State × industry employment analysis
 
-# | Florida | 23.32% |
+### Occupational Employment and Wage Statistics (OEWS)
 
-# | Texas | 21.05% |
+Source: U.S. Bureau of Labor Statistics
 
-# 
+Analysis period: 2021–2025
 
-# The median state employment growth rate over the period was approximately \*\*8.44%\*\*.
+Used for:
 
-# 
+- Occupational employment
+- Mean and median wages
+- Wage percentiles
+- Jobs per 1,000 workers
+- Location Quotient
+- Major occupational groups
+- Detailed occupations
 
-# The underlying trajectories also differed.
+---
 
-# 
+## Analytical Workflow
 
-# Idaho and Utah demonstrated sustained expansion with relatively rapid recovery following the 2020 labor-market disruption. Florida experienced a larger 2020 decline but a strong subsequent rebound.
+BLS Source Data  
+↓  
+Python Data Preparation  
+↓  
+Data Cleaning and Transformation  
+↓  
+Data Validation and Quality Control  
+↓  
+Exploratory Data Analysis  
+↓  
+Analytical Findings  
+↓  
+Tableau Data Model  
+↓  
+Interactive Dashboards
 
-# 
+Python was used to prepare, transform, validate, and analyze the source data before visualization.
 
-# Other states followed very different patterns. North Dakota's weakness, for example, began before the pandemic and was compounded by another decline in 2020.
+The final analytical datasets used by Tableau are included in the data directory.
 
-# 
+---
 
-# These differences demonstrate that similar endpoint growth rates do not necessarily imply similar labor-market trajectories.
+## Data Quality and Methodological Considerations
 
-# 
+### QCEW Suppression
 
-# \---
+Some industry-level QCEW observations are suppressed by BLS for confidentiality.
 
-# 
+Suppressed values were not imputed.
 
-# \## Employment and Pay Growth
+The industry dataset contains a suppression indicator identifying state-industry observations where at least one underlying ownership component was suppressed.
 
-# 
+Industry-level employment totals were also compared with official state employment totals to evaluate practical data coverage.
 
-# Employment growth and nominal average annual pay growth were positively related across states.
+Coverage was generally very high from 2015–2024, while 2025 contained substantial coverage gaps for several states.
 
-# 
+For this reason, the systematic cross-state industry-driver analysis uses 2015–2024.
 
-# The correlation between 2015–2025 employment growth and average annual pay growth was approximately:
+### OEWS Time Comparisons
 
-# 
+OEWS estimates use a multi-panel methodology.
 
-# \*\*0.60\*\*
+The 2021–2025 OEWS data are therefore used primarily to analyze recent occupational structure, employment scale, wages, and geographic concentration.
 
-# 
+Changes between individual OEWS years should not automatically be interpreted as simple annual occupational job growth.
 
-# This indicates a meaningful positive relationship, but the relationship was not uniform.
+### Wage Interpretation
 
-# 
+QCEW average-pay measures are nominal and have not been adjusted for inflation.
 
-# States could exhibit:
+Average pay can also be affected by workforce composition. For example, a disproportionate decline in lower-wage employment can increase average pay even without equivalent wage increases for individual workers.
 
-# 
+---
 
-# \- High employment growth and high pay growth.
+## Repository Structure
 
-# \- High employment growth but lower relative pay growth.
+    us-labor-market-analysis/
+    │
+    ├── analysis/
+    │   ├── 01_QCEW_Data_Preparation.ipynb
+    │   ├── 02_OEWS_Data_Preparation.ipynb
+    │   └── 03_Labor_Market_EDA.ipynb
+    │
+    ├── dashboards/
+    │   ├── labor_market_performance.png
+    │   └── occupational_opportunity.png
+    │
+    ├── data/
+    │   ├── qcew_state_totals_2015_2025.csv
+    │   ├── qcew_state_industry_2015_2025.csv
+    │   └── oews_state_occupation_2021_2025.csv
+    │
+    ├── tableau/
+    │   └── US_Labor_Market_Analysis.twbx
+    │
+    ├── LICENSE
+    └── README.md
 
-# \- Stronger pay growth despite weaker employment expansion.
+---
 
-# \- Below-median performance on both dimensions.
+## Notebooks
 
-# 
+| Notebook | Purpose |
+| --- | --- |
+| 01_QCEW_Data_Preparation.ipynb | QCEW state and industry data preparation and validation |
+| 02_OEWS_Data_Preparation.ipynb | OEWS state occupational data preparation, transformation, and quality control |
+| 03_Labor_Market_EDA.ipynb | Exploratory analysis of state trends, pay growth, industry drivers, coverage, and patterns used in the dashboards |
 
-# This distinction helps separate labor-market expansion from changes in compensation.
+---
 
-# 
+## Tools and Technologies
 
-# > \*\*Important:\*\* Pay growth is nominal and is not adjusted for inflation. It should therefore not be interpreted as growth in purchasing power.
+Python · Pandas · NumPy · Jupyter Notebook · Tableau · Git · GitHub · BLS QCEW · BLS OEWS
 
-# 
+---
 
-# \---
+## Project Deliverables
 
-# 
+This repository includes:
 
-# \# Industry Growth Drivers
+- Reproducible Python data-preparation workflows
+- Data validation and quality-control steps
+- Exploratory labor-market analysis
+- Final analytical datasets used by Tableau
+- Tableau packaged workbook (.twbx)
+- Final dashboard images
+- Interactive Tableau Public dashboards
 
-# 
+---
 
-# Industry-level analysis showed that employment growth was not driven by the same sectors everywhere.
+## Author
 
-# 
+Ahmed Alazzawi
 
-# For systematic cross-state comparison, the industry-driver analysis uses \*\*2015–2024\*\* rather than 2015–2025 because 2025 QCEW industry coverage was incomplete for several states.
-
-# 
-
-# Among \*\*50 states with sufficient endpoint data coverage\*\*:
-
-# 
-
-# \- \*\*Health Care and Social Assistance\*\* ranked among the top three industries for employment gains in \*\*47 of 50 states\*\*.
-
-# \- Health Care and Social Assistance was the \*\*single largest employment-growth contributor in 36 states\*\*.
-
-# \- \*\*Professional, Scientific, and Technical Services\*\* ranked among the top three growth industries in \*\*33 states\*\*.
-
-# \- \*\*Construction\*\* ranked among the top three in \*\*24 states\*\*.
-
-# \- \*\*Transportation and Warehousing\*\* ranked among the top three in \*\*20 states\*\*.
-
-# 
-
-# Health Care and Social Assistance therefore emerged as the most geographically widespread employment-growth engine across U.S. states.
-
-# 
-
-# Secondary growth drivers were more geographically differentiated.
-
-# 
-
-# \---
-
-# 
-
-# \## Different States, Different Growth Structures
-
-# 
-
-# Even rapidly expanding states did not grow through identical industry structures.
-
-# 
-
-# \### Florida
-
-# 
-
-# Major employment additions included:
-
-# 
-
-# \- Health Care and Social Assistance: \*\*+333,648\*\*
-
-# \- Professional, Scientific, and Technical Services: \*\*+256,459\*\*
-
-# \- Construction: \*\*+228,144\*\*
-
-# \- Transportation and Warehousing: \*\*+178,131\*\*
-
-# \- Accommodation and Food Services: \*\*+147,126\*\*
-
-# 
-
-# Florida therefore experienced relatively broad-based employment expansion across several major industries.
-
-# 
-
-# \### Idaho
-
-# 
-
-# Idaho's major employment gains included:
-
-# 
-
-# \- Health Care and Social Assistance: \*\*+38,691\*\*
-
-# \- Construction: \*\*+36,954\*\*
-
-# \- Accommodation and Food Services: \*\*+20,886\*\*
-
-# \- Professional, Scientific, and Technical Services: \*\*+19,709\*\*
-
-# 
-
-# Construction employment increased by more than \*\*100%\*\* over the period, making it a particularly important component of Idaho's labor-market expansion.
-
-# 
-
-# \### Texas
-
-# 
-
-# Texas generated substantial employment gains across several industries, including:
-
-# 
-
-# \- Health Care and Social Assistance: \*\*+392,834\*\*
-
-# \- Professional, Scientific, and Technical Services: \*\*+354,280\*\*
-
-# \- Accommodation and Food Services: \*\*+244,890\*\*
-
-# \- Construction: \*\*+222,918\*\*
-
-# \- Transportation and Warehousing: \*\*+217,157\*\*
-
-# 
-
-# At the same time, Mining, Quarrying, and Oil and Gas Extraction declined by approximately \*\*60,000 jobs\*\*.
-
-# 
-
-# This illustrates how strong aggregate state employment growth can coexist with contraction in historically important industries.
-
-# 
-
-# \---
-
-# 
-
-# \# Occupational Opportunity Framework
-
-# 
-
-# The occupational component uses OEWS data from \*\*2021–2025\*\* to examine the structure of employment opportunities within individual states.
-
-# 
-
-# Three primary dimensions are used:
-
-# 
-
-# \### Employment
-
-# 
-
-# Represents the scale of an occupation within the selected state's labor market.
-
-# 
-
-# \### Median Annual Wage
-
-# 
-
-# Provides a measure of occupational compensation.
-
-# 
-
-# \### Location Quotient (LQ)
-
-# 
-
-# Measures how concentrated an occupation is within a state's employment structure relative to the national labor market.
-
-# 
-
-# An LQ of:
-
-# 
-
-# \- \*\*1.0\*\* indicates concentration approximately equal to the national level.
-
-# \- \*\*Above 1.0\*\* indicates higher local concentration.
-
-# \- \*\*Below 1.0\*\* indicates lower local concentration.
-
-# 
-
-# The dashboard compares occupational wages with the selected state's overall median wage while using \*\*LQ = 1.0\*\* as the national concentration benchmark.
-
-# 
-
-# This creates four descriptive occupational profiles:
-
-# 
-
-# 1\. \*\*High Pay / High Concentration\*\*
-
-# 2\. \*\*High Pay / Low Concentration\*\*
-
-# 3\. \*\*Low Pay / High Concentration\*\*
-
-# 4\. \*\*Low Pay / Low Concentration\*\*
-
-# 
-
-# These categories are designed to describe occupational structure and should not be interpreted as a ranking of the "best" or "worst" occupations.
-
-# 
-
-# \---
-
-# 
-
-# \# Data Sources
-
-# 
-
-# \## Quarterly Census of Employment and Wages (QCEW)
-
-# 
-
-# \*\*Source:\*\* U.S. Bureau of Labor Statistics
-
-# 
-
-# Used for:
-
-# 
-
-# \- Employment
-
-# \- Establishments
-
-# \- Total wages
-
-# \- Average annual pay
-
-# \- Average weekly wage
-
-# \- State-level labor-market analysis
-
-# \- State × industry employment analysis
-
-# 
-
-# \*\*Analysis period:\*\* 2015–2025
-
-# 
-
-# \---
-
-# 
-
-# \## Occupational Employment and Wage Statistics (OEWS)
-
-# 
-
-# \*\*Source:\*\* U.S. Bureau of Labor Statistics
-
-# 
-
-# Used for:
-
-# 
-
-# \- Occupational employment
-
-# \- Mean and median wages
-
-# \- Wage percentiles
-
-# \- Jobs per 1,000 workers
-
-# \- Location Quotient
-
-# \- Major occupational groups
-
-# \- Detailed occupations
-
-# 
-
-# \*\*Analysis period:\*\* 2021–2025
-
-# 
-
-# \---
-
-# 
-
-# \# Analytical Workflow
-
-# 
-
-# The project follows an end-to-end analytical workflow:
-
-# 
-
-# ```text
-
-# BLS Source Data
-
-# &#x20;     ↓
-
-# Python Data Preparation
-
-# &#x20;     ↓
-
-# Data Cleaning \& Transformation
-
-# &#x20;     ↓
-
-# Data Validation \& Quality Control
-
-# &#x20;     ↓
-
-# Exploratory Data Analysis
-
-# &#x20;     ↓
-
-# Analytical Findings
-
-# &#x20;     ↓
-
-# Tableau Data Model
-
-# &#x20;     ↓
-
-# Interactive Dashboards
-
-# ```
-
-# 
-
-# Python was used to prepare, transform, validate, and analyze the source data before visualization.
-
-# 
-
-# The final analytical datasets used by Tableau are included in the `data/` directory.
-
-# 
-
-# \---
-
-# 
-
-# \# Data Quality and Methodological Considerations
-
-# 
-
-# \## QCEW Suppression
-
-# 
-
-# Some industry-level QCEW observations are suppressed by BLS for confidentiality.
-
-# 
-
-# Suppressed values were \*\*not imputed\*\*.
-
-# 
-
-# The industry dataset therefore contains a suppression indicator identifying state-industry observations where at least one underlying ownership component was suppressed.
-
-# 
-
-# Industry-level employment totals were also compared with official state employment totals to evaluate practical data coverage.
-
-# 
-
-# Coverage was generally very high from 2015–2024, while 2025 contained substantial coverage gaps for several states.
-
-# 
-
-# For this reason, the systematic cross-state industry-driver analysis uses \*\*2015–2024\*\*.
-
-# 
-
-# \---
-
-# 
-
-# \## OEWS Time Comparisons
-
-# 
-
-# OEWS estimates are produced using a multi-panel methodology.
-
-# 
-
-# Therefore, the 2021–2025 OEWS data in this project are primarily used to analyze recent occupational structure, employment scale, wages, and geographic concentration.
-
-# 
-
-# Changes between individual OEWS years should not automatically be interpreted as simple annual occupational job growth.
-
-# 
-
-# \---
-
-# 
-
-# \## Wage Interpretation
-
-# 
-
-# QCEW average-pay measures are nominal.
-
-# 
-
-# They have not been adjusted for inflation and therefore should not be interpreted directly as changes in real purchasing power.
-
-# 
-
-# Average pay can also be affected by changes in workforce composition.
-
-# 
-
-# For example, periods in which lower-wage employment declines disproportionately can produce increases in average pay even without equivalent wage increases for individual workers.
-
-# 
-
-# \---
-
-# 
-
-# \# Repository Structure
-
-# 
-
-# ```text
-
-# us-labor-market-analysis/
-
-# │
-
-# ├── analysis/
-
-# │   ├── 01\_QCEW\_Data\_Preparation.ipynb
-
-# │   ├── 02\_OEWS\_Data\_Preparation.ipynb
-
-# │   └── 03\_Labor\_Market\_EDA.ipynb
-
-# │
-
-# ├── dashboards/
-
-# │   ├── labor\_market\_performance.png
-
-# │   └── occupational\_opportunity.png
-
-# │
-
-# ├── data/
-
-# │   ├── qcew\_state\_totals\_2015\_2025.csv
-
-# │   ├── qcew\_state\_industry\_2015\_2025.csv
-
-# │   └── oews\_state\_occupation\_2021\_2025.csv
-
-# │
-
-# ├── tableau/
-
-# │   └── US\_Labor\_Market\_Analysis.twbx
-
-# │
-
-# ├── LICENSE
-
-# └── README.md
-
-# ```
-
-# 
-
-# \---
-
-# 
-
-# \# Notebooks
-
-# 
-
-# \### `01\_QCEW\_Data\_Preparation.ipynb`
-
-# 
-
-# Preparation and validation of QCEW state and industry-level labor-market data.
-
-# 
-
-# \### `02\_OEWS\_Data\_Preparation.ipynb`
-
-# 
-
-# Preparation, transformation, and quality-control workflow for OEWS state occupational data covering 2021–2025.
-
-# 
-
-# \### `03\_Labor\_Market\_EDA.ipynb`
-
-# 
-
-# Exploratory analysis used to evaluate state employment trends, pay growth, industry growth drivers, data coverage, and other patterns that informed the final Tableau dashboards.
-
-# 
-
-# \---
-
-# 
-
-# \# Tools \& Technologies
-
-# 
-
-# \- \*\*Python\*\*
-
-# \- \*\*Pandas\*\*
-
-# \- \*\*NumPy\*\*
-
-# \- \*\*Jupyter Notebook\*\*
-
-# \- \*\*Tableau\*\*
-
-# \- \*\*Git\*\*
-
-# \- \*\*GitHub\*\*
-
-# \- \*\*BLS QCEW\*\*
-
-# \- \*\*BLS OEWS\*\*
-
-# 
-
-# \---
-
-# 
-
-# \# Project Deliverables
-
-# 
-
-# This repository contains:
-
-# 
-
-# \- Reproducible Python data-preparation workflows.
-
-# \- Data validation and quality-control steps.
-
-# \- Exploratory labor-market analysis.
-
-# \- Final analytical datasets used by Tableau.
-
-# \- Tableau packaged workbook (`.twbx`).
-
-# \- Final dashboard images.
-
-# \- Interactive Tableau Public dashboards.
-
-# 
-
-# \---
-
-# 
-
-# \# Author
-
-# 
-
-# \*\*Ahmed Alazzawi\*\*
-
-# 
-
-# Data Analytics | Business Intelligence | Data Visualization
-
+Data Analytics | Business Intelligence | Data Visualization
